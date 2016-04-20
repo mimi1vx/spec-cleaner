@@ -46,6 +46,8 @@ def process_args(argv):
                               help='specify the output file for the cleaned spec content.')
     parser.add_argument('-p', '--pkgconfig', action='store_true', default=False,
                         help='convert dependencies to their pkgconfig counterparts, requires bit more of cleanup in spec afterwards.')
+    parser.add_argument('-s', '--sort-defines', action='store_true', default=False,
+                        help='Sort defines code into sections rather than as read on input')
     parser.add_argument('-v', '--version', action='version', version=__version__,
                         help='show package version and exit')
 
@@ -67,6 +69,10 @@ def process_args(argv):
         if not options.force and os.path.exists(options.output):
             raise RpmWrongArgs('{0} already exists.'.format(options.output))
 
+    # The sort_defines should never be on in minimal mode so just override it
+    if options.minimal:
+        options.sort_defines = False
+
     # convert options to dict
     options_dict = {
         'specfile': options.spec,
@@ -77,6 +83,7 @@ def process_args(argv):
         'diff_prog': options.diff_prog,
         'minimal': options.minimal,
         'no_copyright': options.no_copyright,
+        'sort_defines': options.sort_defines,
     }
 
     return options_dict

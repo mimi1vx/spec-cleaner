@@ -131,6 +131,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': False,
             'no_copyright': True,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
@@ -149,6 +150,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': False,
             'no_copyright': True,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
@@ -175,6 +177,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': True,
             'no_copyright': True,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
@@ -193,6 +196,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': True,
             'no_copyright': True,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
@@ -214,6 +218,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': True,
             'no_copyright': False,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
@@ -235,6 +240,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': False,
             'no_copyright': True,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
@@ -252,6 +258,7 @@ class TestCompare(object):
             'diff_prog': 'gvimdiff',
             'minimal': False,
             'no_copyright': False,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
 
@@ -268,5 +275,6 @@ class TestCompare(object):
             'diff_prog': 'error',
             'minimal': False,
             'no_copyright': False,
+            'sort_defines': True,
         }
         self._run_individual_test(options)
