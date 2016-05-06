@@ -127,6 +127,8 @@ class RpmPreamble(Section):
         self._condition_define = False
         # Is the condition based probably on bcond evaluation
         self._condition_bcond = False
+        # do we want to sort out defines?
+        self.sort_defines = options['sort_defines']
         # do we want pkgconfig
         self.pkgconfig = options['pkgconfig']
         # dict of license replacement options
@@ -482,6 +484,16 @@ class RpmPreamble(Section):
             self._add_line_to(category, line)
 
     def _add_line_to(self, category, line):
+        # in case we don't want to sort anything just keep rules
+        # override here instead of keeping conditions all around
+        # the place. Bit slower but way more readable
+        if not self.sort_defines:
+            if category == 'define_conditions' or \
+               category == 'bconds' or \
+               category == 'bcond_conditions' or \
+               category == 'misc':
+                category = 'define'
+        # normal adding with sorted defines
         if self.current_group:
             self.current_group.append(line)
             self.paragraph[category].append(self.current_group)

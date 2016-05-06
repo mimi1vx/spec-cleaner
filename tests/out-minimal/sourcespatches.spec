@@ -1,5 +1,6 @@
 
 
+%bcond_with self_hosting
 %define root %version
 %global test somethingelse
 %if 0%{?suse_version} > 1230
@@ -7,7 +8,6 @@
 %else
 %bcond_with    systemd
 %endif
-%bcond_with self_hosting
 Source:         testfile.tar.bz2
 Source2:        testfile2.tar.bz2
 Source15:       anothersource.tar.xz

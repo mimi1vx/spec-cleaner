@@ -1,8 +1,8 @@
-%bcond_with[^\s]*
 %aarch64
 %add_maven_depmap
 %arm
 %attr(\s*\([^)]*\))?
+%bcond_with[^\s]*
 
 %build
 

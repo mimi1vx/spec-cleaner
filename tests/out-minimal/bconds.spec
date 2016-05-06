@@ -31,6 +31,8 @@
 # real file made by update-ca-certificates
 %global javacacerts %{_var}/lib/ca-certificates/java-cacerts
 %global with_default_hotspot_tarball 1
+%bcond_with zero
+%bcond_without bootstrap
 %ifarch %{aarch64}
 %global _with_bootstrap 1
 %global _with_zero 1
@@ -39,8 +41,6 @@
 %ifnarch %{jit_arches}
 %global _with_zero 1
 %endif
-%bcond_with zero
-%bcond_without bootstrap
 %if %{with zero}
 %define something 1
 %endif
