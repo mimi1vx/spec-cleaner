@@ -177,7 +177,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': True,
             'no_copyright': True,
-            'sort_defines': True,
+            'sort_defines': False,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
@@ -196,7 +196,7 @@ class TestCompare(object):
             'diff_prog': 'vimdiff',
             'minimal': True,
             'no_copyright': True,
-            'sort_defines': True,
+            'sort_defines': False,
         }
         self._run_individual_test(options)
         with open(compare) as ref, open(tmp_file) as test:
